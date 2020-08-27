@@ -1,22 +1,29 @@
 package flyable;
 
 import coordinates.Coordinates;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Aircraft {
 
-    protected Long id;
-    protected String name;
+    protected final Long id;
+    protected final String name;
+    private final String fullName;
+
     protected Coordinates coordinates;
 
-    private Long idCounter;
+    private static Long idCounter;
 
     protected Aircraft(String name, Coordinates coordinates) {
+        this.id = nextId();
         this.name = name;
         this.coordinates = coordinates;
+        fullName = this.getClass().getSimpleName() + "#" + name + "(" + id + "): ";
     }
 
     private Long nextId() {
-        throw new NotImplementedException(); // TODO
+        return idCounter++;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 }

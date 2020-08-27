@@ -9,11 +9,11 @@ public class WeatherProvider {
 
     private WeatherProvider() { }
 
-    public WeatherProvider getWeatherProvider() {
+    public static WeatherProvider getWeatherProvider() {
         return weatherProvider;
     }
 
     public String getCurrentWeatherCoordinates(Coordinates coordinates) {
-        return null;
+        return weather[(coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4];
     }
 }

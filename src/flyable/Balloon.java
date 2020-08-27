@@ -13,7 +13,8 @@ public class Balloon extends Aircraft implements Flyable {
 
     @Override
     public void updateConditions() {
-
+        String currentWeather = weatherTower.getWeather(coordinates);
+        System.out.println(currentWeather);
     }
 
     @Override

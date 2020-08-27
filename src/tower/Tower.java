@@ -6,7 +6,7 @@ import flyable.Flyable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Tower extends WeatherTower {
+public class Tower {
 
     private List<Flyable> observers;
     private static final String towerSays = "Tower says: ";
@@ -17,7 +17,6 @@ public class Tower extends WeatherTower {
 
     public void register(Flyable flyable) {
         observers.add(flyable);
-        flyable.registerTower(this);
         System.out.println(towerSays + flyable.getFullName() + " registered to weather tower.");
     }
 
@@ -26,6 +25,8 @@ public class Tower extends WeatherTower {
     }
 
     protected void conditionsChanged() {
-
+        for (Flyable flyable : observers) {
+            flyable.updateConditions();
+        }
     }
 }

@@ -22,11 +22,19 @@ public class Tower {
 
     public void unregister(Flyable flyable) {
         observers.remove(flyable);
+        System.out.println(towerSays + flyable.getFullName() + " unregistered from weather tower.");
     }
 
     protected void conditionsChanged() {
+        List<Flyable> landed = new LinkedList<>();
         for (Flyable flyable : observers) {
             flyable.updateConditions();
+            if (flyable.isLanded()) {
+                landed.add(flyable);
+            }
+        }
+        for (Flyable flyable : landed) {
+            unregister(flyable);
         }
     }
 }

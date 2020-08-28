@@ -19,6 +19,10 @@ public class Aircraft {
         fullName = this.getClass().getSimpleName() + "#" + name + "(" + id + "): ";
     }
 
+    public boolean isLanded() {
+        return coordinates.getHeight() <= 0;
+    }
+
     private Long nextId() {
         return idCounter++;
     }

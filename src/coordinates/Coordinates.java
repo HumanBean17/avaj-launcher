@@ -16,6 +16,7 @@ public class Coordinates {
         this.longitude += longitude;
         this.latitude += latitude;
         this.height += height;
+        this.height = height > 100 ? 100 : height;
     }
 
     public Integer getLongitude() {

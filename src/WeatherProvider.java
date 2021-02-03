@@ -1,7 +1,3 @@
-package provider;
-
-import coordinates.Coordinates;
-
 import java.util.Random;
 
 public class WeatherProvider {

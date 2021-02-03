@@ -1,5 +1,3 @@
-package coordinates;
-
 public class Coordinates {
 
     private Integer longitude;

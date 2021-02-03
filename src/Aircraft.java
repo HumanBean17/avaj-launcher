@@ -1,7 +1,3 @@
-package flyable;
-
-import coordinates.Coordinates;
-
 public class Aircraft {
 
     protected final Long id;

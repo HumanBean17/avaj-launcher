@@ -1,9 +1,3 @@
-package tower;
-
-import flyable.Aircraft;
-import flyable.Flyable;
-import main.Simulator;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,12 +12,12 @@ public class Tower {
 
     public void register(Flyable flyable) {
         observers.add(flyable);
-        Simulator.writeToFile(towerSays + flyable.getFullName() + "registered to weather tower.");
+        FileHandler.writeToFile(towerSays + flyable.getFullName() + "registered to weather tower.");
     }
 
     public void unregister(Flyable flyable) {
         observers.remove(flyable);
-        Simulator.writeToFile(towerSays + flyable.getFullName() + "unregistered from weather tower.");
+        FileHandler.writeToFile(towerSays + flyable.getFullName() + "unregistered from weather tower.");
     }
 
     protected void conditionsChanged() {
@@ -37,5 +31,9 @@ public class Tower {
         for (Flyable flyable : landed) {
             unregister(flyable);
         }
+    }
+
+    public List<Flyable> getObservers() {
+        return observers;
     }
 }

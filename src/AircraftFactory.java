@@ -1,8 +1,3 @@
-package factory;
-
-import coordinates.Coordinates;
-import flyable.*;
-
 public class AircraftFactory {
 
     public static Flyable newAircraft(String type, String name,
